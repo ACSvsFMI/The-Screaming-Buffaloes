@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?> 
-<markers>
-	<marker lat="43.65654" lng="-79.90138" query="SWITCH1 REQ /30" label="Marker One"/>
-	<marker lat="43.91892" lng="-78.89231" query="SWITCH2 REQ /29" label="Marker Two"/>
-	<marker lat="43.82589" lng="-79.10040" query="SWITCH3 REQ /30" label="Marker Three"/>
-	<marker lat="43.82589" lng="-79.10040" query="SWITCH2 DELETE" label="Marker Three"/>
-	<marker lat="43.82589" lng="-79.10040" query="SWITCH2PRIM REQ /29" label="Marker Three"/>
-</markers>
