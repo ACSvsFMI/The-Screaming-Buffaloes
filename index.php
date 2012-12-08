@@ -141,8 +141,8 @@ box-shadow:         9px 8px 14px rgba(50, 50, 50, 0.7);
 	function initialize() {
 
 	var myOptions = {
-		zoom: 12,
-		center: new google.maps.LatLng(35.454364, 22.099288),
+		zoom: 15,
+		center: new google.maps.LatLng(41.90077578469788, 12.453217506408691),
 		mapTypeControl: true,
 		mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
 		navigationControl: true,
@@ -157,13 +157,15 @@ box-shadow:         9px 8px 14px rgba(50, 50, 50, 0.7);
 	<?php
 		$places = new Places();
 
-		$places->addPlace(35.454364,22.099288,"HACK REQ /30");
-		$places->addPlace(35.464364,22.089288,"HACK REQ /27");
-		$places->addPlace(35.466364,22.086288,"HACK REQ /29");
-		$places->addPlace(35.468364,22.092288,"HACK REQ /29");
-		$places->addPlace(35.464364,22.089288,"HACK DELETE");
-		$places->addPlace(35.464364,22.099288,"HACK REQ /28");
-		$results = $places->searchPlaces(35.454364, 22.099288, 10000, "HACK");
+		$places->addPlace(41.903139448813754, 12.453217506408691,"HACK REQ /30");
+		$places->addPlace(41.90216524650067, 12.457273006439209,"HACK REQ /27");
+		$places->addPlace(41.90216524650067, 12.453432083129883,"HACK REQ /29");
+		$places->addPlace(41.90652508551971, 12.454376220703125,"HACK REQ /29");
+		$places->addPlace(41.90216524650067, 12.457273006439209,"HACK DELETE");
+		$places->addPlace(41.90077578469788, 12.455835342407227,"HACK REQ /28");
+		$places->addPlace(41.90216524650067, 12.457273006439209,"HACK REQ /25");
+		
+		$results = $places->searchPlaces(41.90077578469788, 12.453217506408691, 10000, "HACK");
 		
 		$assigner = new AssignAddresses();
 		$addresses = $assigner->parser($results);
