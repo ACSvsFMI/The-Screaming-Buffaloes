@@ -25,7 +25,7 @@ body {
 	float: left;
 	width: 100%;
 	height: 100%;
-	z-index: -1;
+	z-index: 2;
 }
 
 #statistics {
@@ -66,6 +66,38 @@ box-shadow:         9px 8px 14px rgba(50, 50, 50, 0.7);
 #button a:hover {
 	margin:auto;
 	background-position:0 -50px;
+}
+
+#statistics ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#statistics ul li {
+	display: block;
+	padding: 8px 0px 8px 10px;
+	xbackground-color: #000000;
+	background-color: #DDD;
+	color: #333;
+	font-size: 11px;
+	line-height: 20px;
+	font-weight: 700;
+	letter-spacing: -0.5px;
+	text-transform: uppercase;
+	text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.5);
+	xfilter: dropshadow(color=#000000, offx=0, offy=-1);
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+
+#statistics ul li:hover {
+	background-color: #111;
+	color: #80A535;
+	text-decoration: none;
+	text-shadow: none;
 }
 
 </style>
@@ -109,8 +141,8 @@ box-shadow:         9px 8px 14px rgba(50, 50, 50, 0.7);
 	function initialize() {
 
 	var myOptions = {
-		zoom: 8,
-		center: new google.maps.LatLng(43.907787,-79.359741),
+		zoom: 12,
+		center: new google.maps.LatLng(35.454364, 22.099288),
 		mapTypeControl: true,
 		mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
 		navigationControl: true,

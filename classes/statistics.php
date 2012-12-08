@@ -5,13 +5,14 @@ Class Statistics {
 	const MAX_NO_ADDR = 4096; // fiindca avem subnet de /20
 	
 	function showStatistics($array) {
-		$result="Ipotetic vorbind, ar mai incapea... ";
+		$result="<p>Ipotetic vorbind, ar mai incapea...</p><ul>";
 		for($i = 24; $i <= 31; $i++) {
-			$result.= "<p>";
+			$result.= "<li>";
 			$result.= $this->howManyDoTheyFit($this->maskToLength($i), $array);
 			$result.= " adrese /$i";
-			$result.= "</p>";
+			$result.= "</li>";
 		}
+		$result.="</ul>";
 		echo $result;
 	}
 	
