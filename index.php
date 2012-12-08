@@ -1,5 +1,6 @@
 <?php
 require_once("classes/map.php");
+require_once("classes/statistics.php");
 require_once("classes/places.php");
 require_once("classes/assignaddresses.php");
 error_reporting(E_ERROR);
@@ -14,17 +15,70 @@ html {
 }
 
 body {
+	font-family: 'Open Sans', sans-serif;
 	height: 100%;
 	margin: 0;
 	padding: 0
 }
 
 #map_canvas {
-	height: 100%
+	float: left;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
 }
+
+#statistics {
+	width: 400px;
+	display: none;
+}
+
+#button {
+	position: absolute;
+	top: 10px;
+	left: 50%;
+	height: 100px;
+	width: 100px;
+	z-index: 5;
+}
+
+#button {
+	display:block;
+	width:250px;
+	height:50px;
+	top: 20px;
+	left: 50%;
+	margin: 0 0 0 -125px;
+	text-indent:-9999px;
+	z-index: 5;
+}
+#button a {
+	margin:auto;
+	display:block;
+	width:250px;
+	height:100%;
+	background:url(images/statistics.png) no-repeat top left;
+	outline:none;
+	-webkit-box-shadow: 9px 8px 14px rgba(50, 50, 50, 0.7);
+-moz-box-shadow:    9px 8px 14px rgba(50, 50, 50, 0.7);
+box-shadow:         9px 8px 14px rgba(50, 50, 50, 0.7);
+}
+#button a:hover {
+	margin:auto;
+	background-position:0 -50px;
+}
+
 </style>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpb6x0w0jD0Dm23bZwUkMSOntIq5-U2xA&sensor=true"></script>
-
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/jquery.fancybox.js"></script>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+<link rel="stylesheet" type="text/css" href="css/jquery.fancybox.css" media="screen" />
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('.fancybox').fancybox();
+	});
+</script>
 <script type="text/javascript">
     var side_bar_html = ""; 
     var gmarkers = []; 
@@ -45,7 +99,6 @@ body {
 
 	gmarkers.push(marker);
 
-	side_bar_html += '<a href="javascript:myclick(' + (gmarkers.length-1) + ')">' + name + '<\/a><br>';
 }
 
 
@@ -98,7 +151,18 @@ body {
 
 </head>
 <body onload="initialize()">
-	<div id="map_canvas" style="width: 70%; height: 100%"></div>
-	<div id="side_bar" style="width: 30%"></div>
+	<div id="button">
+		<a class="fancybox" href="#statistics" title="Statistics">Statistics</a>
+	</div>
+	<div id="map_canvas"></div>
+	<div id="statistics">
+	
+	<?php 
+		$statistics = new Statistics();
+		
+		$statistics->showStatistics($addresses);
+	?>
+	
+	</div>
 </body>
 </html>
